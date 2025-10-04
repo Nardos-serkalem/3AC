@@ -1,0 +1,159 @@
+// src/components/Navbar.jsx
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
+
+const Navbar = () => {
+  const [expanded, setExpanded] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
+
+  const toggleNavbar = () => setExpanded(!expanded);
+  const closeNavbar = () => {
+    setExpanded(false);
+    setDropdown(null);
+  };
+
+  return (
+    <nav className="bg-white shadow-md sticky top-0 z-50">
+      <div className="container mx-auto px-4 flex items-center justify-between py-3">
+        {/* Logo */}
+        <Link to="/" onClick={closeNavbar} className="flex items-center">
+          <img src={logo} alt="AAAC Center Logo" className="h-16 object-contain" />
+        </Link>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={toggleNavbar}
+          className="lg:hidden p-2 text-gray-600 focus:outline-none"
+        >
+          {expanded ? (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
+
+        {/* Nav Links */}
+        <div className={`${expanded ? "block" : "hidden"} lg:flex lg:items-center lg:space-x-6`}>
+          <ul className="flex flex-col lg:flex-row lg:space-x-6 text-gray-700 font-medium">
+            <li>
+              <NavLink to="/" className="hover:text-blue-600" onClick={closeNavbar}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about-us" className="hover:text-blue-600" onClick={closeNavbar}>
+                About Us
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/services" className="hover:text-blue-600" onClick={closeNavbar}>
+                Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/gallery" className="hover:text-blue-600" onClick={closeNavbar}>
+                Gallery
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/researches" className="hover:text-blue-600" onClick={closeNavbar}>
+                Researches
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/lunar-mission" className="hover:text-blue-600" onClick={closeNavbar}>
+                Lunar Mission
+              </NavLink>
+            </li>
+
+            {/* Partnership Dropdown */}
+            <li className="relative">
+              <button
+                className="flex items-center hover:text-blue-600"
+                onClick={() => setDropdown(dropdown === "partnership" ? null : "partnership")}
+              >
+                Partnership
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {dropdown === "partnership" && (
+                <ul className="absolute bg-white shadow-md rounded mt-2 w-40">
+                  <li>
+                    <Link to="/partnership/institutional"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={closeNavbar}>
+                      Institutional
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/partnership/organizational"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={closeNavbar}>
+                      Organizational
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            {/* Discover Us Dropdown */}
+            <li className="relative">
+              <button
+                className="flex items-center hover:text-blue-600"
+                onClick={() => setDropdown(dropdown === "discover" ? null : "discover")}
+              >
+                Discover Us
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                    d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {dropdown === "discover" && (
+                <ul className="absolute bg-white shadow-md rounded mt-2 w-40">
+                  <li>
+                    <Link to="/discover/overview"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={closeNavbar}>
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/discover/teas"
+                      className="block px-4 py-2 hover:bg-gray-100"
+                      onClick={closeNavbar}>
+                      TEAS Page
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            {/* Contact Button */}
+            <li>
+              <Link to="/contact-us"
+                className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+                onClick={closeNavbar}>
+                Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
