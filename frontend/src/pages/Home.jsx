@@ -1,28 +1,25 @@
 // src/pages/Home.jsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import heroBg from '../assets/background.gif';
+import React from "react";
+import { Link } from "react-router-dom";
+import heroBg from "../assets/background.gif";
 
 const Home = () => {
   return (
     <div>
       {/* Hero Section */}
       <section
-        className="relative text-white py-12"
+        className="relative text-white py-12 min-h-[90vh] bg-center bg-cover bg-no-repeat flex items-center justify-center"
         style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '80vh',
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${heroBg})`,
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
         <div className="relative z-10 text-center max-w-3xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-extrabold">
             African Aeronautics and Astronautics Center
           </h1>
           <p className="mt-4 text-lg md:text-xl text-gray-200">
-            Providing cutting-edge ground station infrastructure and research capabilities for space data mining intelligence.
+            Providing cutting-edge ground station infrastructure and research
+            capabilities for space data mining intelligence.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
