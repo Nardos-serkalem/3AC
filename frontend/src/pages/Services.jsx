@@ -5,11 +5,11 @@ import colabImg from "../assets/colab.jpg";
 
 const Services = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-[1400px] mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold">Our Services</h2>
-        <p className="text-gray-500 mt-2">
+        <h2 className="text-5xl font-bold">Our Services</h2>
+        <p className="text-gray-500 mt-4 text-lg font-medium">
           Explore the key services we offer in aerospace and satellite science.
         </p>
       </div>

@@ -1,15 +1,16 @@
 import React from "react";
+import discoverOverview from "../../assets/discoverOverview.jpg";
 
 const Overview = () => {
   return (
-    <section className="py-20 px-6 bg-gray-50 text-gray-900">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-8 px-6 bg-gray-50 text-gray-900">
+      <div className="max-w-[1400px] mx-auto">
         {/* Heading */}
-        <h2 className="text-4xl font-bold text-center mb-8">
+        <h2 className="text-5xl font-bold text-center mb-8">
           Overview of Our Mission
         </h2>
 
-        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p className="text-center text-lg text-gray-600 max-w-5xl mx-auto mb-12 leading-relaxed">
           The African Aeronautic and Astronautic Center (AAAC) is a continental
           initiative established to lead Africa into the new space age through
           innovation, collaboration, and scientific leadership.
@@ -43,7 +44,7 @@ const Overview = () => {
           {/* Right Image */}
           <div className="flex justify-center">
             <img
-              src="/images/discover-overview.jpg"
+              src={discoverOverview}
               alt="Center overview"
               className="rounded-xl shadow-lg w-full h-[380px] object-cover hover:scale-105 transition-transform duration-500"
             />

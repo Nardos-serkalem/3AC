@@ -4,7 +4,7 @@ import img1 from "../assets/colab.jpg"; // adjust path if needed
 
 const AboutUs = () => {
   return (
-    <section className="py-8 bg-white text-gray-800">
+    <section className="py-8 text-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <h2 className="text-center font-bold text-3xl md:text-5xl mb-6">
           About Us

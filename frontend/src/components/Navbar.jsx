@@ -63,20 +63,15 @@ const Navbar = () => {
           )}
         </button>
 
-        {/* Nav Links */}
-        <div
-          className={`${
-            expanded ? "block" : "hidden"
-          } lg:flex lg:items-center lg:space-x-6`}
-        >
-          <ul className="flex flex-col lg:flex-row md:space-x-6 text-gray-700 font-semibold text-md">
+        {/* Desktop Nav Links */}
+        <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-6 lg:flex-1">
+          <ul className="flex flex-row md:space-x-6 text-gray-700 font-semibold text-md">
             <li>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
-                onClick={closeNavbar}
               >
                 Home
               </NavLink>
@@ -87,7 +82,6 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
-                onClick={closeNavbar}
               >
                 About Us
               </NavLink>
@@ -98,7 +92,6 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
-                onClick={closeNavbar}
               >
                 Services
               </NavLink>
@@ -109,7 +102,6 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
-                onClick={closeNavbar}
               >
                 Gallery
               </NavLink>
@@ -120,7 +112,6 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
-                onClick={closeNavbar}
               >
                 Researches
               </NavLink>
@@ -131,7 +122,6 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
-                onClick={closeNavbar}
               >
                 Lunar Mission
               </NavLink>
@@ -247,16 +237,160 @@ const Navbar = () => {
               )}
             </li>
           </ul>
-          {/* Contact Button */}
         </div>
-        <Link
-          to="/contact-us"
-          className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-          onClick={closeNavbar}
-        >
-          Contact Us
-        </Link>
+
+        {/* Desktop Contact Button */}
+        <div className="hidden lg:block lg:ml-4">
+          <Link
+            to="/contact-us"
+            className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          >
+            Contact Us
+          </Link>
+        </div>
       </div>
+
+      {/* Mobile Sidebar */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform ${
+          expanded ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out z-50`}
+      >
+        <div className="flex justify-end p-4">
+          <button onClick={closeNavbar} className="text-gray-600">
+            ✕
+          </button>
+        </div>
+        <ul className="flex flex-col px-6 space-y-4 text-gray-700 font-semibold">
+          <li>
+            <NavLink
+              to="/"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/about-us"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/services"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/gallery"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Gallery
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/researches"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Researches
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/lunar-mission"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Lunar Mission
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/partnership/institutional"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Institutional Partnership
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/partnership/organizational"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Organizational Partnership
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/discover/overview"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              Discover Overview
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/discover/teas"
+              onClick={closeNavbar}
+              className={({ isActive }) =>
+                isActive ? "text-blue-600" : "hover:text-blue-600"
+              }
+            >
+              TEAS Page
+            </NavLink>
+          </li>
+        </ul>
+        <div className="mt-6 px-6">
+          <Link
+            to="/contact-us"
+            className="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+            onClick={closeNavbar}
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
+
+      {/* Overlay when sidebar is open */}
+      {expanded && (
+        <div
+          onClick={closeNavbar}
+          className="fixed inset-0 bg-black opacity-40 z-40"
+        ></div>
+      )}
     </nav>
   );
 };

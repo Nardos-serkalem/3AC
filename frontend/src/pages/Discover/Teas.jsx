@@ -68,7 +68,7 @@ const boardMembers = [
 
 const Section = ({ title, members }) => {
   return (
-    <div className="mb-12">
+    <div className="mb-12 max-w-[1400px] mx-auto">
       <h3 className="text-center text-blue-700 font-bold text-2xl mb-8">
         {title}
       </h3>
@@ -77,14 +77,14 @@ const Section = ({ title, members }) => {
         {members.map((member, idx) => (
           <div
             key={idx}
-            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col hover:shadow-lg transition"
+            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col hover:shadow-lg transition items-center justify-center"
           >
             {/* Image */}
             <div className="h-64 w-full overflow-hidden border-b">
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-contain object-top"
               />
             </div>
 
@@ -105,13 +105,13 @@ const Section = ({ title, members }) => {
 
 const Teas = () => {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
+    <div className="max-w-[1400px] mx-auto px-6 py-8">
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold">
+        <h2 className="text-3xl md:text-5xl font-bold">
           Meet the Visionaries Behind the Mission
         </h2>
-        <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
+        <p className="text-gray-600 mt-4 max-w-5xl text-lg mx-auto">
           Our team of scientists, engineers, and educators drives African
           innovation in space research and technology.
         </p>
@@ -123,11 +123,11 @@ const Teas = () => {
       <Section title="Board Members" members={boardMembers} />
 
       {/* Quote Section */}
-      <div className="bg-gray-100 p-6 rounded-lg text-center mt-12">
-        <h4 className="text-blue-700 font-semibold text-xl mb-2">
+      <div className=" p-6 rounded-lg text-center mt-12">
+        <h4 className="text-blue-700 font-bold text-2xl mb-2">
           "Africa’s Future is Written in the Stars"
         </h4>
-        <p className="text-gray-600 italic">
+        <p className="text-gray-600 italic text-lg">
           Empowering space exploration through research, education, and
           innovation.
         </p>
