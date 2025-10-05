@@ -2,6 +2,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import heroBg from "../assets/background.gif";
+import groundImg from "../assets/ground.jpg";
+import dataImg from "../assets/data.jpg";
+import researchImg from "../assets/research.jpg";
 
 const Home = () => {
   return (
@@ -14,14 +17,14 @@ const Home = () => {
         }}
       >
         <div className="relative z-10 text-center max-w-3xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold">
+          <h1 className="text-4xl md:text-6xl font-extrabold">
             African Aeronautics and Astronautics Center
           </h1>
-          <p className="mt-4 text-lg md:text-xl text-gray-200">
+          <p className="mt-8 text-lg md:text-2xl text-gray-200">
             Providing cutting-edge ground station infrastructure and research
             capabilities for space data mining intelligence.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link
               to="/services"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition"
@@ -39,22 +42,22 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-12 text-center">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <h2 className="text-blue-600 font-bold text-3xl">2+</h2>
+      <section className="bg-white py-26 text-center">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="border-r border-gray-300 pr-4 last:border-0">
+            <h2 className="text-blue-600 font-bold text-4xl">2+</h2>
             <p className="text-gray-600">Ground Stations</p>
           </div>
-          <div>
-            <h2 className="text-blue-600 font-bold text-3xl">20+</h2>
+          <div className="border-r border-gray-300 pr-4 last:border-0">
+            <h2 className="text-blue-600 font-bold text-4xl">20+</h2>
             <p className="text-gray-600">Research Papers</p>
           </div>
-          <div>
-            <h2 className="text-blue-600 font-bold text-3xl">5+</h2>
+          <div className="border-r border-gray-300 pr-4 last:border-0">
+            <h2 className="text-blue-600 font-bold text-4xl">5+</h2>
             <p className="text-gray-600">Global Partners</p>
           </div>
-          <div>
-            <h2 className="text-blue-600 font-bold text-3xl">2TB+</h2>
+          <div className="pr-4 last:border-0">
+            <h2 className="text-blue-600 font-bold text-4xl">2TB+</h2>
             <p className="text-gray-600">Daily Data Processing</p>
           </div>
         </div>
@@ -62,7 +65,7 @@ const Home = () => {
 
       {/* Services Section */}
       <section className="bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-0">
           <h2 className="text-center mb-10 font-extrabold text-2xl md:text-3xl">
             Our Services
           </h2>
@@ -70,7 +73,7 @@ const Home = () => {
             {/* Ground Station Rental */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
               <img
-                src="/images/ground-station.jpg"
+                src={groundImg}
                 alt="Ground Station"
                 className="h-52 w-full object-cover"
               />
@@ -92,7 +95,7 @@ const Home = () => {
             {/* Space Data Mining */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
               <img
-                src="/images/data-mining.jpg"
+                src={dataImg}
                 alt="Data Mining"
                 className="h-52 w-full object-cover"
               />
@@ -114,7 +117,7 @@ const Home = () => {
             {/* Research Collaboration */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
               <img
-                src="/images/research-team.jpg"
+                src={researchImg}
                 alt="Research Collaboration"
                 className="h-52 w-full object-cover"
               />
