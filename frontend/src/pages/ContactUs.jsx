@@ -76,7 +76,7 @@ const ContactUs = () => {
         </div>
         <div className="w-full md:w-1/2">
           <h3 className="text-5xl font-semibold mb-4">Contact Information</h3>
-          <div className="mb-2 flex items-center gap-4">
+          <div className="mb-2 flex items-center gap-4 w-1/2 justify-between">
             <p className="text-gray-600 flex items-center gap-4">
               <span className="font-semibold text-lg"><Icon icon="ph:envelope" width="25" height="25" /> </span>{" "}
               info@ssgi.org
