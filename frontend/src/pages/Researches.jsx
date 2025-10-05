@@ -1,23 +1,26 @@
 import React from "react";
+import spaceWeather from "../assets/space-weather.jpg";
+import agriSat from "../assets/agri-sat.jpg";
+import agriMonitoring from "../assets/agri-monitoring.jpg";
 
 const researchData = [
   {
     title: "AI-Powered Space Weather Forecasting",
-    image: "/images/space-weather.jpg",
+    image: spaceWeather,
     summary:
       "We use machine learning models to predict solar flares and geomagnetic storms from satellite telemetry data.",
     link: "/projects/space-weather-ai",
   },
   {
     title: "Satellite Image Classification for Agriculture",
-    image: "/images/agri-sat.jpg",
+    image: agriSat,
     summary:
       "Our team is working on a classification model for crop analysis using high-resolution satellite imagery.",
     link: "/projects/agri-monitoring",
   },
   {
     title: "GNSS Signal Processing & Optimization",
-    image: "/images/gnss.jpg",
+    image: agriMonitoring,
     summary:
       "This project improves GNSS signal accuracy and reliability for aerospace and navigation systems.",
     link: "/projects/gnss-optimization",
@@ -26,13 +29,16 @@ const researchData = [
 
 const Researches = () => {
   return (
-    <section className="py-16 bg-gray-100 text-gray-900">
-      <div className="container mx-auto px-4">
+    <section className="py-8 bg-gray-100 text-gray-900">
+      <div className="container max-w-[1400px] mx-auto px-4">
         {/* Section Title */}
-        <h2 className="text-center font-bold text-3xl mb-6">Research Projects</h2>
-        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-          Our research lab is committed to advancing African aerospace science through
-          high-impact projects across artificial intelligence, satellite data, and geospatial technology.
+        <h2 className="text-center font-bold text-3xl md:text-5xl mb-6">
+          Research Projects
+        </h2>
+        <p className="text-center text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
+          Our research lab is committed to advancing African aerospace science
+          through high-impact projects across artificial intelligence, satellite
+          data, and geospatial technology.
         </p>
 
         {/* Research Cards */}
@@ -52,7 +58,9 @@ const Researches = () => {
               {/* Content */}
               <div className="p-5 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold mb-2">{research.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 flex-grow">{research.summary}</p>
+                <p className="text-gray-600 text-sm mb-4 flex-grow">
+                  {research.summary}
+                </p>
                 <a
                   href={research.link}
                   className="text-indigo-600 hover:text-indigo-800 text-sm font-medium mt-auto"
