@@ -18,10 +18,10 @@ const ContactUs = () => {
     <section className="py-8 bg-white text-gray-800">
       <div className="max-w-[1400px] mx-auto justify-between px-6 md:px-0 flex flex-col md:flex-row gap-10">
         <div className="max-w-1/2">
-          <h2 className="text-start font-bold text-3xl md:text-5xl mb-4">
+          <h2 className="text-start font-semibold text-3xl md:text-5xl mb-4">
             Contact Us
           </h2>
-          <p className="text-start text-lg text-gray-600 mb-10">
+          <p className="text-start text-lg text-gray-600 mb-6">
             Got a question, feedback, or partnership idea? We'd love to hear
             from you.
           </p>
@@ -39,7 +39,7 @@ const ContactUs = () => {
                 value={form.name}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
               <input
                 type="email"
@@ -48,7 +48,7 @@ const ContactUs = () => {
                 value={form.email}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
 
@@ -61,21 +61,21 @@ const ContactUs = () => {
                 value={form.message}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-700 transition duration-300"
+              className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition duration-300"
             >
               Send Message
             </button>
           </form>
         </div>
         <div className="w-full md:w-1/2">
-          <h3 className="text-5xl font-semibold mb-4">Contact Information</h3>
+          <h3 className="text-3xl font-semibold mb-4">Contact Information</h3>
           <div className="mb-2 flex items-center gap-4 w-1/2 justify-between">
             <p className="text-gray-600 flex items-center gap-4">
               <span className="font-semibold text-lg"><Icon icon="ph:envelope" width="25" height="25" /> </span>{" "}

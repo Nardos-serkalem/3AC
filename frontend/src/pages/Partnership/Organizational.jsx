@@ -26,9 +26,9 @@ const organizations = [
 
 const Organizational = () => {
   return (
-    <section className="py-16 bg-white text-gray-800">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <h2 className="text-3xl font-bold text-center mb-12">
+    <section className="py-8 bg-white text-gray-800">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-0">
+        <h2 className="text-4xl font-bold text-center mb-12">
           Organizational Partners
         </h2>
 
@@ -36,7 +36,7 @@ const Organizational = () => {
           {organizations.map((org, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-6 flex flex-col items-center text-center"
+              className="bg-white border border-gray-300 rounded-2xl shadow-md hover:shadow-lg transition duration-300 p-6 flex flex-col items-center text-center"
             >
               <img
                 src={org.logo}

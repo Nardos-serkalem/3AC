@@ -26,10 +26,10 @@ const institutions = [
 
 const Institutional = () => {
   return (
-    <section className="py-16 bg-white text-gray-900">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-8 bg-white text-gray-900">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-0">
         {/* Title */}
-        <h2 className="text-center text-3xl font-bold mb-12">
+        <h2 className="text-center text-4xl font-bold mb-12">
           Institutional Partners
         </h2>
 
@@ -38,7 +38,7 @@ const Institutional = () => {
           {institutions.map((inst, index) => (
             <div
               key={index}
-              className="bg-white shadow-md rounded-lg text-center p-6 hover:shadow-lg transition flex flex-col items-center"
+              className="bg-white shadow-md rounded-lg border border-gray-300 text-center p-6 hover:shadow-lg transition flex flex-col items-center"
             >
               <img
                 src={inst.logo}

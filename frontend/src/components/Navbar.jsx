@@ -69,11 +69,13 @@ const Navbar = () => {
             expanded ? "block" : "hidden"
           } lg:flex lg:items-center lg:space-x-6`}
         >
-          <ul className="flex flex-col lg:flex-row md:space-x-6 text-gray-700 font-medium">
+          <ul className="flex flex-col lg:flex-row md:space-x-6 text-gray-700 font-semibold text-md">
             <li>
               <NavLink
                 to="/"
-                className="hover:text-blue-600"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-blue-600"
+                }
                 onClick={closeNavbar}
               >
                 Home
@@ -82,7 +84,9 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/about-us"
-                className="hover:text-blue-600"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-blue-600"
+                }
                 onClick={closeNavbar}
               >
                 About Us
@@ -91,7 +95,9 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/services"
-                className="hover:text-blue-600"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-blue-600"
+                }
                 onClick={closeNavbar}
               >
                 Services
@@ -100,7 +106,9 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/gallery"
-                className="hover:text-blue-600"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-blue-600"
+                }
                 onClick={closeNavbar}
               >
                 Gallery
@@ -109,7 +117,9 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/researches"
-                className="hover:text-blue-600"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-blue-600"
+                }
                 onClick={closeNavbar}
               >
                 Researches
@@ -118,7 +128,9 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/lunar-mission"
-                className="hover:text-blue-600"
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600" : "hover:text-blue-600"
+                }
                 onClick={closeNavbar}
               >
                 Lunar Mission
@@ -151,22 +163,30 @@ const Navbar = () => {
               {dropdown === "partnership" && (
                 <ul className="absolute bg-white shadow-md rounded mt-2 w-40">
                   <li>
-                    <Link
+                    <NavLink
                       to="/partnership/institutional"
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 bg-gray-100 text-blue-600"
+                          : "block px-4 py-2 hover:bg-gray-100"
+                      }
                       onClick={closeNavbar}
                     >
                       Institutional
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to="/partnership/organizational"
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 bg-gray-100 text-blue-600"
+                          : "block px-4 py-2 hover:bg-gray-100"
+                      }
                       onClick={closeNavbar}
                     >
                       Organizational
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               )}
@@ -198,22 +218,30 @@ const Navbar = () => {
               {dropdown === "discover" && (
                 <ul className="absolute bg-white shadow-md rounded mt-2 w-40">
                   <li>
-                    <Link
+                    <NavLink
                       to="/discover/overview"
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 bg-gray-100 text-blue-600"
+                          : "block px-4 py-2 hover:bg-gray-100"
+                      }
                       onClick={closeNavbar}
                     >
                       Overview
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to="/discover/teas"
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 bg-gray-100 text-blue-600"
+                          : "block px-4 py-2 hover:bg-gray-100"
+                      }
                       onClick={closeNavbar}
                     >
                       TEAS Page
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               )}

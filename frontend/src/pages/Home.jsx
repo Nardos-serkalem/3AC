@@ -5,8 +5,13 @@ import heroBg from "../assets/background.gif";
 import groundImg from "../assets/ground.jpg";
 import dataImg from "../assets/data.jpg";
 import researchImg from "../assets/research.jpg";
+import { motion as Motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 
 const Home = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
   return (
     <div>
       {/* Hero Section */}
@@ -17,14 +22,34 @@ const Home = () => {
         }}
       >
         <div className="relative z-10 text-center max-w-3xl mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-extrabold">
+          {/* Title */}
+          <Motion.h1
+            className="text-4xl md:text-6xl font-extrabold"
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             African Aeronautics and Astronautics Center
-          </h1>
-          <p className="mt-8 text-lg md:text-2xl text-gray-200">
+          </Motion.h1>
+
+          {/* Subtitle */}
+          <Motion.p
+            className="mt-8 text-lg md:text-2xl text-gray-200"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          >
             Providing cutting-edge ground station infrastructure and research
             capabilities for space data mining intelligence.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
+          </Motion.p>
+
+          {/* Buttons */}
+          <Motion.div
+            className="mt-10 flex flex-wrap justify-center gap-4"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          >
             <Link
               to="/services"
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-md transition"
@@ -37,27 +62,38 @@ const Home = () => {
             >
               View Research
             </Link>
-          </div>
+          </Motion.div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white py-26 text-center">
+      <section ref={ref} className="bg-white py-26 text-center">
         <div className="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="border-r border-gray-300 pr-4 last:border-0">
-            <h2 className="text-blue-600 font-bold text-4xl">2+</h2>
+            <h2 className="text-blue-600 font-bold text-4xl">
+              {inView && <CountUp end={2} duration={2} />}+
+            </h2>
             <p className="text-gray-600">Ground Stations</p>
           </div>
+
           <div className="border-r border-gray-300 pr-4 last:border-0">
-            <h2 className="text-blue-600 font-bold text-4xl">20+</h2>
+            <h2 className="text-blue-600 font-bold text-4xl">
+              {inView && <CountUp end={20} duration={2.5} />}+
+            </h2>
             <p className="text-gray-600">Research Papers</p>
           </div>
+
           <div className="border-r border-gray-300 pr-4 last:border-0">
-            <h2 className="text-blue-600 font-bold text-4xl">5+</h2>
+            <h2 className="text-blue-600 font-bold text-4xl">
+              {inView && <CountUp end={5} duration={2} />}+
+            </h2>
             <p className="text-gray-600">Global Partners</p>
           </div>
+
           <div className="pr-4 last:border-0">
-            <h2 className="text-blue-600 font-bold text-4xl">2TB+</h2>
+            <h2 className="text-blue-600 font-bold text-4xl">
+              {inView && <CountUp end={2} suffix="TB" duration={3} />}+
+            </h2>
             <p className="text-gray-600">Daily Data Processing</p>
           </div>
         </div>
