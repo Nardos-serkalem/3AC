@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import logo from '../assets/logo.png';
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -9,6 +12,9 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Signup submitted:", form);
+
+    // Redirect to home page after handling signup
+    navigate("/");
   };
 
   return (
@@ -16,7 +22,7 @@ const Signup = () => {
       <div className="bg-white p-8 rounded-xl shadow-md text-center w-full max-w-md">
         {/* Logo */}
         <img
-          src="/images/logo.png"
+          src={logo}
           alt="Company Logo"
           className="mx-auto mb-6 h-20"
         />

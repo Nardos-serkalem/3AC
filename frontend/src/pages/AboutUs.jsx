@@ -1,6 +1,7 @@
 // src/components/AboutUs.jsx
 import React from "react";
 import img1 from "../assets/colab.jpg"; // adjust path if needed
+import { Icon } from '@iconify/react';
 
 const AboutUs = () => {
   return (
@@ -28,7 +29,7 @@ const AboutUs = () => {
 
           {/* Text Content */}
           <div>
-            <h3 className="text-indigo-600 text-xl font-semibold mb-3">
+            <h3 className="text-blue-600 text-xl font-semibold mb-3">
               Our Mission
             </h3>
             <p className="text-gray-600 mb-6">
@@ -37,14 +38,14 @@ const AboutUs = () => {
               services, and expert-driven research initiatives.
             </p>
 
-            <h3 className="text-indigo-600 text-xl font-semibold mb-3">
+            <h3 className="text-blue-600 text-xl font-semibold mb-3">
               What We Do
             </h3>
             <ul className="text-gray-600 space-y-2 list-disc list-inside">
-              <li>Operate and maintain ground station infrastructure</li>
-              <li>Offer research collaboration opportunities in space science</li>
-              <li>Deliver high-value satellite data services and analytics</li>
-              <li>Run public engagement, training, and educational programs</li>
+              <li className="flex"><span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>Operate and maintain ground station infrastructure</li>
+              <li className="flex"><span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>Offer research collaboration opportunities in space science</li>
+              <li className="flex"><span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>Deliver high-value satellite data services and analytics</li>
+              <li className="flex"><span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>Run public engagement, training, and educational programs</li>
             </ul>
           </div>
         </div>
