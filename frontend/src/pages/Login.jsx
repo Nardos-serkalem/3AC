@@ -1,19 +1,38 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png"; // Adjust path if needed
+import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const { handleLogin, loading } = useAuth();
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login submitted:", form);
-    // Redirect to home page after handling login
-    navigate("/");
+    setError("");
+    setSuccess("");
+
+    try {
+      const response = await handleLogin(form);
+      setSuccess("Login successful!");
+
+      console.log("Login response:", response);
+
+      // Redirect to homepage or dashboard after a short delay
+      setTimeout(() => navigate("/"), 1200);
+    } catch (err) {
+      const message =
+        err.response?.data?.message ||
+        err.message ||
+        "Login failed. Please check your credentials.";
+      setError(message);
+    }
   };
 
   return (
@@ -53,13 +72,31 @@ const Login = () => {
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
           </div>
+
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold transition duration-200"
+            disabled={loading}
+            className={`w-full text-white py-3 rounded-lg font-semibold transition duration-200 ${
+              loading
+                ? "bg-blue-400 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700"
+            }`}
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
+
+        {/* Feedback messages */}
+        {error && (
+          <p className="text-red-600 text-sm mt-4 bg-red-100 p-2 rounded text-center">
+            {error}
+          </p>
+        )}
+        {success && (
+          <p className="text-green-600 text-sm mt-4 bg-green-100 p-2 rounded text-center">
+            {success}
+          </p>
+        )}
 
         {/* Footer */}
         <p className="text-center text-gray-600 text-sm mt-6">

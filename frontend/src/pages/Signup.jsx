@@ -1,31 +1,47 @@
 import React, { useState } from "react";
-import logo from '../assets/logo.png';
+import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const { handleRegister, loading } = useAuth();
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup submitted:", form);
+    setError("");
+    setSuccess("");
 
-    // Redirect to home page after handling signup
-    navigate("/");
+    try {
+      const response = await handleRegister(form);
+      setSuccess("Account created successfully!");
+      console.log("Signup response:", response);
+
+      // Optional: if backend returns token, auto-login could be done here
+
+      // Redirect after short delay
+      setTimeout(() => navigate("/login"), 1500);
+    } catch (err) {
+      const message =
+        err.response?.data?.message ||
+        err.message ||
+        "Signup failed. Please try again.";
+      setError(message);
+    }
   };
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="bg-white p-8 rounded-xl shadow-md text-center w-full max-w-md">
         {/* Logo */}
-        <img
-          src={logo}
-          alt="Company Logo"
-          className="mx-auto mb-6 h-20"
-        />
+        <img src={logo} alt="Company Logo" className="mx-auto mb-6 h-20" />
 
         <h2 className="text-2xl font-bold mb-6">Create an Account</h2>
 
@@ -69,11 +85,28 @@ const Signup = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            disabled={loading}
+            className={`w-full text-white py-2 rounded-lg transition ${
+              loading
+                ? "bg-blue-400 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700"
+            }`}
           >
-            Sign Up
+            {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
+
+        {/* Success or Error Messages */}
+        {error && (
+          <p className="text-red-600 text-sm mt-3 bg-red-100 p-2 rounded">
+            {error}
+          </p>
+        )}
+        {success && (
+          <p className="text-green-600 text-sm mt-3 bg-green-100 p-2 rounded">
+            {success}
+          </p>
+        )}
 
         {/* Footer text */}
         <p className="text-sm text-gray-600 mt-4">
