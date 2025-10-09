@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const { handleLogin, loading } = useAuth();
 
@@ -15,12 +14,10 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
 
     try {
       const response = await handleLogin(form);
-      setSuccess("Login successful!");
+      toast.success("Login successful");
 
       console.log("Login response:", response);
 
@@ -31,7 +28,7 @@ const Login = () => {
         err.response?.data?.message ||
         err.message ||
         "Login failed. Please check your credentials.";
-      setError(message);
+      toast.error(message);
     }
   };
 
@@ -85,18 +82,6 @@ const Login = () => {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
-
-        {/* Feedback messages */}
-        {error && (
-          <p className="text-red-600 text-sm mt-4 bg-red-100 p-2 rounded text-center">
-            {error}
-          </p>
-        )}
-        {success && (
-          <p className="text-green-600 text-sm mt-4 bg-green-100 p-2 rounded text-center">
-            {success}
-          </p>
-        )}
 
         {/* Footer */}
         <p className="text-center text-gray-600 text-sm mt-6">

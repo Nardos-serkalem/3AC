@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const { handleRegister, loading } = useAuth();
 
@@ -16,12 +14,10 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
 
     try {
       const response = await handleRegister(form);
-      setSuccess("Account created successfully!");
+      toast.success("Account created successfully");
       console.log("Signup response:", response);
 
       // Optional: if backend returns token, auto-login could be done here
@@ -33,7 +29,7 @@ const Signup = () => {
         err.response?.data?.message ||
         err.message ||
         "Signup failed. Please try again.";
-      setError(message);
+      toast.error(message);
     }
   };
 
@@ -95,18 +91,6 @@ const Signup = () => {
             {loading ? "Creating account..." : "Sign Up"}
           </button>
         </form>
-
-        {/* Success or Error Messages */}
-        {error && (
-          <p className="text-red-600 text-sm mt-3 bg-red-100 p-2 rounded">
-            {error}
-          </p>
-        )}
-        {success && (
-          <p className="text-green-600 text-sm mt-3 bg-green-100 p-2 rounded">
-            {success}
-          </p>
-        )}
 
         {/* Footer text */}
         <p className="text-sm text-gray-600 mt-4">

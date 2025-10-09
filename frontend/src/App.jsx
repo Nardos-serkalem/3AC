@@ -1,5 +1,6 @@
 // ...existing code...
 import React from "react";
+import { ToastContainer } from "react-toastify";
 import { Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -41,34 +42,53 @@ function MainLayout() {
 
 function App() {
   return (
-    <Routes>
-      {/* Routes that should include Navbar + Footer */}
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/researches" element={<Researches />} />
-        <Route path="/lunar-mission" element={<LunarMission />} />
-        <Route path="/contact-us" element={<ContactUs />} />
+    <>
+      <Routes>
+        {/* Routes that should include Navbar + Footer */}
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/researches" element={<Researches />} />
+          <Route path="/lunar-mission" element={<LunarMission />} />
+          <Route path="/contact-us" element={<ContactUs />} />
 
-        {/* Dropdown / footer pages */}
-        <Route path="/partnership/institutional" element={<Institutional />} />
-        <Route path="/partnership/organizational" element={<Organizational />} />
-        <Route path="/discover/overview" element={<Overview />} />
-        <Route path="/discover/teas" element={<Teas />} />
+          {/* Dropdown / footer pages */}
+          <Route
+            path="/partnership/institutional"
+            element={<Institutional />}
+          />
+          <Route
+            path="/partnership/organizational"
+            element={<Organizational />}
+          />
+          <Route path="/discover/overview" element={<Overview />} />
+          <Route path="/discover/teas" element={<Teas />} />
 
-        <Route path="/news" element={<News />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/membership" element={<Membership />} />
-      </Route>
+          <Route path="/news" element={<News />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/membership" element={<Membership />} />
+        </Route>
 
-      {/* Auth routes: no Navbar/Footer */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-    </Routes>
+        {/* Auth routes: no Navbar/Footer */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+
+      {/* Toast Notifications */}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="colored"
+      />
+    </>
   );
 }
 
