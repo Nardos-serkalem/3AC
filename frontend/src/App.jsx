@@ -26,6 +26,8 @@ import Projects from "./pages/Projects";
 import Membership from "./pages/Membership";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ResearchDetail from "./pages/researches/ResearchDetail";
+import LunarDetail from "./pages/projects/LunarDetail";
 // ...existing code...
 
 function MainLayout() {
@@ -70,6 +72,8 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/events" element={<Events />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/lunar" element={<LunarDetail />} />
+          <Route path="/researches/:slug" element={<ResearchDetail />} />
           <Route path="/membership" element={<Membership />} />
         </Route>
 

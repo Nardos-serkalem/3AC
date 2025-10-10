@@ -1,31 +1,6 @@
 import React from "react";
-import spaceWeather from "../assets/space-weather.jpg";
-import agriSat from "../assets/agri-sat.jpg";
-import agriMonitoring from "../assets/agri-monitoring.jpg";
-
-const researchData = [
-  {
-    title: "AI-Powered Space Weather Forecasting",
-    image: spaceWeather,
-    summary:
-      "We use machine learning models to predict solar flares and geomagnetic storms from satellite telemetry data.",
-    link: "/projects/space-weather-ai",
-  },
-  {
-    title: "Satellite Image Classification for Agriculture",
-    image: agriSat,
-    summary:
-      "Our team is working on a classification model for crop analysis using high-resolution satellite imagery.",
-    link: "/projects/agri-monitoring",
-  },
-  {
-    title: "GNSS Signal Processing & Optimization",
-    image: agriMonitoring,
-    summary:
-      "This project improves GNSS signal accuracy and reliability for aerospace and navigation systems.",
-    link: "/projects/gnss-optimization",
-  },
-];
+import { Link } from "react-router-dom";
+import researchData from "../data/researchData";
 
 const Researches = () => {
   return (
@@ -43,9 +18,9 @@ const Researches = () => {
 
         {/* Research Cards */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {researchData.map((research, index) => (
+          {researchData.map((research) => (
             <div
-              key={index}
+              key={research.slug}
               className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col overflow-hidden"
             >
               {/* Image */}
@@ -61,12 +36,12 @@ const Researches = () => {
                 <p className="text-gray-600 text-sm mb-4 flex-grow">
                   {research.summary}
                 </p>
-                <a
-                  href={research.link}
+                <Link
+                  to={`/researches/${research.slug}`}
                   className="text-indigo-600 hover:text-indigo-800 text-sm font-medium mt-auto"
                 >
                   Read more →
-                </a>
+                </Link>
               </div>
             </div>
           ))}

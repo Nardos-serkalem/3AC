@@ -1,24 +1,27 @@
 import React from "react";
+import lunarImage from "../assets/project-lunar.jpg";
+import satImage from "../assets/project-sat1.jpg";
+import aiImage from "../assets/project-ai.jpg";
 
 const projects = [
   {
     title: "Lunar Dust Particle Sensor",
     status: "In Progress",
-    image: "/images/project-lunar.jpg",
+    image: lunarImage,
     description:
       "We are developing a lightweight sensor for monitoring dust particles on the Moon’s surface as part of a global lunar research initiative.",
   },
   {
     title: "AfricaSat-1 Microsatellite",
     status: "Completed",
-    image: "/images/project-sat1.jpg",
+    image: satImage,
     description:
       "A successful launch of our first microsatellite designed for Earth observation, weather monitoring, and climate analytics.",
   },
   {
     title: "Space Weather AI Pipeline",
     status: "In Progress",
-    image: "/images/project-ai.jpg",
+    image: aiImage,
     description:
       "A deep learning-based system to forecast solar flares and geomagnetic storms using satellite and ground-based data.",
   },
@@ -26,10 +29,10 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="py-16 bg-gray-50 text-gray-900">
+    <section className="py-8 bg-gray-50 text-gray-900">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <h2 className="text-center font-bold text-3xl mb-10">Our Projects</h2>
+        <h2 className="text-center font-bold text-3xl md:text-5xl mb-10">Our Projects</h2>
 
         {/* Projects Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
