@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app import models
 from app.database import engine
 from app.routes import auth
+from app.routes import content
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -26,6 +27,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router)
+app.include_router(content.router)
 
 
 @app.get("/")
