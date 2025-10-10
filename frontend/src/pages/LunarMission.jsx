@@ -1,6 +1,7 @@
-import React from 'react';
-import lunarImg from '../assets/background.gif'; // Adjust path as needed
-import { Icon } from '@iconify/react';
+import React from "react";
+import lunarImg from "../assets/background.gif"; // Adjust path as needed
+import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
 const LunarMission = () => {
   return (
@@ -12,9 +13,9 @@ const LunarMission = () => {
         </h2>
 
         <p className="text-center text-gray-600 max-w-4xl text-xl mx-auto mb-12">
-          Our lunar exploration initiative is a multi-phase project focused on research, data collection,
-          and future collaboration in missions that aim to reach, study, and simulate lunar environments
-          from Africa.
+          Our lunar exploration initiative is a multi-phase project focused on
+          research, data collection, and future collaboration in missions that
+          aim to reach, study, and simulate lunar environments from Africa.
         </p>
 
         {/* Content */}
@@ -35,19 +36,43 @@ const LunarMission = () => {
             </h3>
             <ul className="space-y-6 text-gray-700">
               <li className="flex items-start text-lg font-medium">
-                <span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>
+                <span className="text-blue-600 mr-2">
+                  <Icon
+                    icon="ph:arrow-bend-down-right-bold"
+                    width="25"
+                    height="25"
+                  />
+                </span>
                 Simulate lunar terrain for testing and training purposes
               </li>
               <li className="flex items-start text-lg font-medium">
-                <span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>
+                <span className="text-blue-600 mr-2">
+                  <Icon
+                    icon="ph:arrow-bend-down-right-bold"
+                    width="25"
+                    height="25"
+                  />
+                </span>
                 Collaborate on international lunar research and mission prep
               </li>
               <li className="flex items-start text-lg font-medium">
-                <span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>
+                <span className="text-blue-600 mr-2">
+                  <Icon
+                    icon="ph:arrow-bend-down-right-bold"
+                    width="25"
+                    height="25"
+                  />
+                </span>
                 Use AI to analyze lunar surface imaging and geophysical data
               </li>
               <li className="flex items-start text-lg font-medium">
-                <span className="text-blue-600 mr-2"><Icon icon="ph:arrow-bend-down-right-bold" width="25" height="25" /></span>
+                <span className="text-blue-600 mr-2">
+                  <Icon
+                    icon="ph:arrow-bend-down-right-bold"
+                    width="25"
+                    height="25"
+                  />
+                </span>
                 Engage African youth in space mission design and robotics
               </li>
             </ul>
@@ -59,12 +84,12 @@ const LunarMission = () => {
           <p className="text-gray-600 mb-4">
             We are building Africa’s future on the Moon — one step at a time.
           </p>
-          <a
-            href="/projects/lunar"
+          <Link
+            to="/projects/lunar"
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-medium shadow hover:bg-blue-700 transition"
           >
             Learn More About The Project
-          </a>
+          </Link>
         </div>
       </div>
     </section>
