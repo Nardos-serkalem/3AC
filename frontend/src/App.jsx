@@ -28,7 +28,24 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import ResearchDetail from "./pages/researches/ResearchDetail";
 import LunarDetail from "./pages/projects/LunarDetail";
-// ...existing code...
+import NewsDetail from "./pages/news/NewsDetail";
+
+// admin pages
+import AdminNews from "./pages/admin/news";
+import AdminProjects from "./pages/admin/projects";
+import AdminResearch from "./pages/admin/research";
+import AdminNavbar from "./components/adminNavbar";
+
+function AdminLayout() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <AdminNavbar />
+      <main className="pt-6">
+        <Outlet />
+      </main>
+    </div>
+  );
+}
 
 function MainLayout() {
   return (
@@ -69,6 +86,7 @@ function App() {
           <Route path="/discover/teas" element={<Teas />} />
 
           <Route path="/news" element={<News />} />
+          <Route path="/news/:slug" element={<NewsDetail />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/events" element={<Events />} />
           <Route path="/projects" element={<Projects />} />
@@ -80,6 +98,13 @@ function App() {
         {/* Auth routes: no Navbar/Footer */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        {/* Admin routes (use admin navbar) */}
+        <Route element={<AdminLayout />}>
+          <Route path="/admin" element={<AdminNews />} />
+          <Route path="/admin/projects" element={<AdminProjects />} />
+          <Route path="/admin/research" element={<AdminResearch />} />
+        </Route>
       </Routes>
 
       {/* Toast Notifications */}
